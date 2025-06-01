@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#home" class="navbar-logo">MpoxScanner</a>
+
+        <div class="navbar-nav">
+            <a href="#cara">Cara Menggunakan</a>
+            <a href="#fitur">Fitur AI</a>
+            <a href="#tentang-ai">Tentang AI</a>
+        </div>
+
+        <div class="navbar-extra">
+            <button id="menu"><i data-feather="menu"></i></button>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-kiri">
+            <h1>Periksa Kulitmu Sekarang!</h1>
+            <div class="steps">
+                <div class="step">
+                    <div class="icon-wrapper color1">
+                        <img src="/static/Images/Scan3D.png" alt="Scan3D">
+                    </div>
+                    <div class="step-kanan">
+                        <p class="step-text">Step 1</p>
+                        <br>
+                        <p>Ambil foto kulit yang sedang bermasalah</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="icon-wrapper color2">
+                        <img src="/static/Images/AI3D.png" alt="AI3D">
+                    </div>
+                    <div class="step-kanan">
+                        <p class="step-text">Step 2</p>
+                        <br>
+                        <p>AI langsung menganalisis foto anda</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="icon-wrapper color3">
+                        <img src="/static/Images/Report3D.png" alt="Report3D">
+                    </div>
+                    <div class="step-kanan">
+                        <p class="step-text">Step 3</p>
+                        <br>
+                        <p>Melihat hasil dari analisis</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cta">
+                <a href="#upload">Coba Sekarang</a>
+            </div>
+            <p class="hero-kiri-warn">* Hasil analisis tidak seratus persen sempurna. Untuk mendapatkan diagnosis
+                yang akurat dan rekomendasi perawatan, konsultasikan dengan dokter Anda.</p>
+        </div>
+
+        <div class="hero-kanan">
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Cara Menggunakan Section -->
+    <section class="cara" id="cara">
+        <h2 class="cara-judul">Bagaimana Cara Menggunakan MpoxScanner?</h2>
+
+        <div class="cara-steps">
+            <div class="cara-step">
+                <img src="https://img.icons8.com/ios/150/hand-with-smartphone.png" alt="Ambil Foto">
+                <h3>Ambil Foto</h3>
+                <p>
+                    Zoom sedekat mungkin, pastikan fokus, dan hanya area kulit yang terlihat untuk mendapatkan hasil
+                    maksimal.
+                </p>
+            </div>
+
+            <div class="cara-step">
+                <img src="https://img.icons8.com/ios-filled/100/sent.png" alt="Kirim Foto">
+                <h3>Upload Gambar</h3>
+                <p>
+                    Kirim foto ke sistem AI. Gambar akan diklasifikasi dan Anda akan dapat melihat tingkat
+                    kepercayaan risiko.
+                </p>
+            </div>
+
+            <div class="cara-step">
+                <img src="https://img.icons8.com/ios/150/checked--v1.png" alt="Hasil Diagnosis">
+                <h3>Melihat Hasil</h3>
+                <p>
+                    Hasil akan muncul dalam waktu kurang dari 60 detik.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Cara Menggunakan Section End -->
+
+    <!-- Upload Section -->
+    <section class="upload" id="upload">
+        <div class="upload-kiri">
+            <div class="dokter3d">
+            </div>
+        </div>
+        <div class="upload-kanan">
+            <form action="/" method="POST" enctype="multipart/form-data" class="form-container">
+                <div class="upload-box" id="imagePreview">
+                    <input type="file" id="fileInput" name="image" accept="image/*" style="display: none;" />
+                    <img id="selectedImage" src="" alt="Preview"
+                        style="max-width: 100%; max-height: 100%; display: none; justify-self: center;" />
+                    <button type="button" class="upload-button">Upload gambar</button>
+                    <p class="upload-text">atau jatuhkan gambar</p>
+                </div>
+                <button class="prediksi-button" type="submit">Prediksi</button>
+            </form>
+            <div class="hasil-model">
+                <div class="hasil-gambar">
+                    <img src="{{ image_url }}" alt="no image" width="30%" height="30%">
+                </div>
+                <div class="hasil-text-row">
+                    <div class="hasil-text">
+                        <p>Hasil</p>
+                        <p>: </p>
+                    </div>
+                    <p>{{ label }}</p>
+                </div>
+                <div class="hasil-text-row">
+                    <div class="hasil-text">
+                        <p>Tingkat keyakinan</p>
+                        <p>: </p>
+                    </div>
+                    <p>{{ confidence }}%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Upload Section End -->
+
+    <!-- Fitur Section -->
+    <section class="fitur" id="fitur">
+        <h2 class="fitur-judul">Mengapa MpoxScanner Layak Digunakan?</h2>
+        <div class="features">
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <img src="https://img.icons8.com/ios-filled/50/artificial-intelligence.png" alt="AI Icon" />
+                </div>
+                <h3 class="feature-title">Cerdas</h3>
+                <p class="feature-text">
+                    MpoxScanner dibangun dengan kecerdasan buatan hasil dari mempelajari ratusan gambar lesi kulit.
+                </p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <img src="https://img.icons8.com/ios-filled/50/clock--v1.png" alt="Time Icon" />
+                </div>
+                <h3 class="feature-title">Cepat</h3>
+                <p class="feature-text">
+                    Cukup foto bagian kulit dan dalam waktu kurang dari 1 menit, hasil akan segera ditampilkan.
+                </p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <img src="https://img.icons8.com/ios-filled/50/smartphone.png" alt="Mobile Icon" />
+                </div>
+                <h3 class="feature-title">Mudah Diakses</h3>
+                <p class="feature-text">
+                    Dapat digunakan kapan saja dan di mana saja. Cek kesehatan kulit langsung dari website
+                    Anda.
+                </p>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <img src="https://img.icons8.com/ios-filled/50/money.png" alt="Money Icon" />
+                </div>
+                <h3 class="feature-title">Gratis</h3>
+                <p class="feature-text">
+                    MpoxScanner hadir dengan fitur canggih namun tetap gratis, cocok untuk kebutuhan klasifikasi cacar
+                    monyet.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Fitur Section End -->
+
+
+    <!-- About Section -->
+    <section class="tentang-ai" id="tentang-ai">
+        <div class="tentang-ai-kiri">
+            <img src="/static/Images/AI.png" alt="">
+        </div>
+        <div class="tentang-ai-kanan">
+            <h2 class="judul">Tentang Sistem Deteksi Cacar Monyet</h2>
+            <p class="deskripsi">
+                Website ini menggunakan teknologi <strong>Kecerdasan Buatan (AI)</strong> berbasis <strong>Convolutional
+                    Neural Network (CNN)</strong> dengan arsitektur <strong>ResNet50V2</strong> untuk mengklasifikasikan
+                gambar kulit menjadi dua kategori utama: <em>Cacar Monyet</em> dan <em>Bukan Cacar Monyet</em>.
+            </p>
+            <p class="deskripsi">
+                Model AI telah dilatih menggunakan ratusan gambar dari berbagai kondisi kulit, termasuk cacar air,
+                cacar api, impetigo, dermatitis, dan kulit sehat. Dengan proses pelatihan yang mendalam, sistem ini
+                mampu
+                mengenali pola visual yang kompleks dan memberikan prediksi dengan tingkat akurasi yang tinggi.
+            </p>
+        </div>
+    </section>
+    <!-- About Section End -->
+
+    <!-- Feather Icons -->
+    <script>
+        feather.replace();
+    </script>
+    <!-- Feather Icons End -->
+
+    <!-- My Javascript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <!-- My Javascript End -->
+</body>
+
+</html>

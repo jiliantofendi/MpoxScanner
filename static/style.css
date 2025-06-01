@@ -1,0 +1,611 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #fff;
+    color: #000;
+    min-height: 2000px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Campur */
+.fitur .fitur-judul, .cara .cara-judul, 
+.tentang-ai .tentang-ai-kanan .judul{
+  font-size: 2rem;
+  color: #0a2e5c;
+  margin-bottom: 50px;
+  font-weight: bold;
+  text-align: center;
+}
+/* Campur End */
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 4.6rem;
+    background-color: #002C6C;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.navbar .navbar-nav a {
+    color: #fff;
+    font-weight: 600;
+    display: inline-block;
+    font-size: 1.2rem;
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+    color: #1269c7;
+}
+
+.navbar .navbar-nav a::after {
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid #1269c7;
+    transform: scaleX(0);
+    transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.5);
+}
+
+#menu {
+  color: #fff;
+  background-color: transparent;
+  display: none;
+}
+/* Navbar End */
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 90px 40px;
+  height: 75vh;
+  background-image: url("/static/Images/BG2.png");
+  border-bottom-right-radius: 150px; 
+  overflow: hidden;
+  transition: 0.5s linear;
+}
+
+
+.hero .hero-kiri {
+  max-width: 800px;
+  text-align: start;
+  margin-left: 2%;
+  margin-top: 50px;
+}
+
+.hero-kiri h1 {
+  font-size: 30px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.steps {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.step {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: start;
+}
+
+.step .step-kanan {
+  justify-items: center;
+  max-width: 10rem;
+}
+
+.step img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.step p {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.step .step-text {
+    width: 50%;
+    padding: 4px;
+    border: #fff solid 2px;
+    border-radius: 30px;
+}
+
+.icon-wrapper {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  padding: 30px 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-right: 1.5rem;
+}
+
+.icon-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.color1 {
+  background-color: #fa5a5a;
+}
+.color2 {
+  background-color: #aa5afa;
+}
+.color3 {
+  background-color: #5afa87;
+}
+
+.hero .hero-kiri .cta {
+  display: inline-block;
+  background-color: #28a745;
+  padding: 15px 35px;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.hero .hero-kiri .cta a{
+  color: #fff;
+}
+
+.hero .hero-kiri .cta:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+.hero .hero-kanan {
+  width: 80%;
+  height: 90vh;
+  background-image: url("/static/Images/Punggung.png");
+  background-repeat: no-repeat;
+  margin-right: -40px;
+  margin-top: -15vh;
+}
+
+.hero .hero-kiri-warn {
+  color: #fff;
+  margin-top: 20px;
+}
+
+/* Hero Section End*/
+
+/* Fitur Section */
+.fitur {
+  padding: 60px 20px;
+  background-color: #fff;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* .fitur-heading ada di campur */
+
+.features {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.feature-box {
+  flex: 1 1 200px;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  background-color: #2dd5d5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-icon img {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0) invert(1); /* makes icon white */
+}
+
+.feature-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.feature-text {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+/* Fitur Section End */
+
+/* Upload Section */
+.upload {
+  display: flex;
+}
+ 
+
+.upload .upload-kiri {
+  width: 50%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.upload .upload-kiri .dokter3d {
+  width: 700px;
+  height: 700px;
+  background-image: url("/static/Images/Upload3D.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.upload .upload-kanan {
+  width: 50%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload .upload-kanan .form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.upload .upload-kanan .upload-box {
+  height: 100%;
+  width: 60%;
+  align-content: center;
+  background: #f8f9fa;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  text-align: center;
+  transition: 0.3s linear;
+  margin-top: 20px;
+}
+
+.upload .upload-kanan .upload-box p{
+  color: #555;
+}
+
+.upload .upload-kanan .upload-box .upload-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.upload .upload-kanan .prediksi-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 60px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.upload .upload-kanan .hasil-model {
+  height: 35%;
+  width: 60%;
+  align-content: center;
+  background: #f8f9fa;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  text-align: start;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.upload .upload-kanan .hasil-model .hasil-gambar {
+  width: 150px;
+  height: 150px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  margin-bottom: 15px;
+  justify-self: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.upload .upload-kanan .hasil-model .hasil-gambar img{
+  height: 100%;
+  width: 100%;
+  /* justify-self: center; */
+}
+.upload .upload-kanan .hasil-model .hasil-text-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.upload .upload-kanan .hasil-model .hasil-text {
+  display: flex;
+  justify-content: space-between;
+  width: 140px;
+}
+
+/* Upload Section End */
+
+
+/* Cara Menggunakan Section */
+.cara {
+  margin-top: 40px;
+  padding: 60px 20px;
+  text-align: center;
+ }
+
+/* .cara .cara-title ada di campur*/
+
+.cara-steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.cara-step {
+  flex: 1 1 250px;
+  max-width: 300px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.cara-step img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.cara-step h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin: 10px 0;
+}
+
+.cara-step p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+/* Cara Menggunakan Section End */
+
+
+/* Tentang AI Section */
+.tentang-ai {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+}
+
+/* .tentang-ai .judul ada di campur */
+
+.tentang-ai .deskripsi {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.tentang-ai .tentang-ai-kiri img{
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.tentang-ai .tentang-ai-kanan {
+  padding: 40px 20px;
+  border-radius: 20px;
+  margin: 40px auto;
+  max-width: 900px;
+}
+
+/* Tentang AI Section End */
+
+
+
+/* Media Queries */
+/* Laptop */
+@media (max-width: 1366px) {
+    html {
+        font-size: 75%;
+    }
+
+    /* Hero Section */
+    .hero {
+      border-bottom-right-radius: 0px; 
+      overflow: hidden;
+    }
+    
+    /* Hero Section End */
+
+    /* Upload Section */
+    .upload .upload-kiri .dokter3d {
+      width: 700px;
+      height: 700px;
+      background-size: 550px;
+    }
+
+    .upload .upload-kanan {
+      justify-content: start;
+    }
+
+    .upload .upload-kanan .upload-box {
+      min-width: 300px;
+    }
+    
+     .upload .upload-kanan .hasil-model {
+      min-width: 300px;
+    }
+
+    /* Cara Menggunakan Section */
+    .steps {
+      justify-content: center;
+    }
+
+    .step {
+      max-width: 100%;
+      flex: 1 1 45%;
+    }
+    /* Cara Menggunakan Section End */
+
+    /* Tentang ai Section */
+    .tentang-ai .tentang-ai-kiri{
+    display: none;
+    }
+    /* Tentang ai Section End */
+}
+
+/* Tablet */
+@media (max-width: 758px) {
+    html {
+      font-size: 62.5%;
+    }
+    /* Hero Section */
+    .hero .hero-kanan {
+      display: none;
+    }
+    /* Hero Section End */
+
+    /* Navbar Section */
+    #menu {
+      display: inline-block;
+    }
+
+    .navbar .navbar-nav {
+      position: absolute;
+      top: 100%;
+      right: -100%;
+      background-color: #000;
+      width: 30rem;
+      height: 100vh;
+      transition: 0.3s;
+    }
+
+    .navbar .navbar-nav.active {
+      right: 0;
+    }
+
+    .navbar .navbar-nav a {
+      color: #F5F5F5;
+      display: block;
+      margin: 1.5rem;
+      padding: 0.5rem;
+      font-size: 2rem;
+    }
+
+    .navbar .navbar-nav a::after {
+      transform-origin: 0 0;
+    }
+
+    .navbar .navbar-nav a:hover::after {
+      transform:scaleX(0.2);
+    }
+    /* Navbar Section End */
+
+    /* Upload Section */
+    .upload .upload-kiri {
+      display: none;
+    }
+    
+    .upload .upload-kanan {
+      width: 100%;
+    }
+    
+    /* Upload Section End */
+    
+    /* Fitur Section */
+    .features {
+      justify-content: center;
+    }
+    
+    .feature-box {
+      max-width: 100%;
+      flex: 1 1 45%;
+    }
+    /* Fitur Section End */
+
+    /* Tentang AI Section */
+    /* Tentang AI Section End */
+
+}
+
+/* Handphone */
+@media (max-width: 450px) {
+    html {
+      font-size: 55%;
+    }
+
+    /* Upload Section */
+    /* Upload Section End */
+
+    /* Fitur Section */
+    .feature-box {
+      flex: 1 1 100%;
+    }
+    /* Fitur Section End */
+}
+/* Media Queries End */
